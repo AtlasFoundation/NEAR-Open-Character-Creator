@@ -1,6 +1,6 @@
 {
-  "name": "@webaverse-studios/charactercreator",
-  "version": "0.2.6",
+  "name": "@atlasfoundation/NEAR-NFT",
+  "version": "0.1.0",
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
