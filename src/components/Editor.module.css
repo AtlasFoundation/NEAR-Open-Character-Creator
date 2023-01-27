@@ -3,7 +3,7 @@
     left: 2em;
     top: 20vh;
     height: 39em;
-    border: 1px solid #38404E;
+    border: 2px solid #7aacba;
     border-radius : 5px;
     backdrop-filter: blur(22.5px); 
     box-sizing : border-box;
@@ -14,7 +14,7 @@
 }
 
 .LineDivision {
-    border: 1px solid #3A7484;
+    border: 2px solid #7aacba;
     width: 98%;
     opacity: 0.5;
     margin-bottom: 0;
@@ -24,7 +24,7 @@
 .MenuImg {
     display: inline-block;
     width: 100%;
-    opacity: 0.3;
+    opacity: 1;
     user-select: none;
     text-align: center;
     cursor:pointer;
@@ -41,13 +41,14 @@
 
 .MenuOption {
     width: 3.5em;
-    margin: .25em;
+    margin: .5em;
     margin-bottom: 1em;
 }
 
 .MenuOptionSelected {
     opacity: 1;
     width: 100%;
+    background-color: aqua;
 }
 
 .MenuImgActive {
@@ -58,24 +59,18 @@
     text-align: center;
     cursor:pointer;
     border-right: '';
-
-    margin:auto;
     src: '';
     display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: .25em;
-    margin-top: .25em;
+    background-color: aqua;
 }
 
 .ShuffleOption {
     border-right: '';
-    opacity: .5;
+    opacity: 1;
     height: 2.5em;
     width: 2.5em;
     padding: 0em;
     display: flex;
-    margin-top: .25em;
     margin-left: auto;
     margin-right: auto;
 }
@@ -87,7 +82,6 @@
     width: 2.5em;
     padding: 0em;
     display: flex;
-    margin-top: .25em;
     margin-left: auto;
     margin-right: auto;
 }
@@ -103,6 +97,8 @@
 }
 .MenuImg:hover, .ShuffleOption:hover {
     opacity: 1;
+    background-color: aqua;
+    width: 3.5em;
 }
 
 .LoadingContainer {
