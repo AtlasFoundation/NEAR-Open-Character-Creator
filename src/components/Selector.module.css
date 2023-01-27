@@ -1,0 +1,111 @@
+.SelectorContainerPos {
+  position: absolute;
+  top: 20vh;
+  right: 2em;
+  height: 60vh;
+  overflow-y: scroll;
+  overflow-x: none;
+  border: 1px solid #38404E;
+  border-radius : 5px;
+  backdrop-filter: blur(22.5px);
+  transform: perspective(70vh) rotateY(-5deg);
+  z-index:1000;
+  cursor: pointer;
+}
+
+.selector-container {
+  background: rgba(56, 64, 78, 0.1);
+  border-radius: .25em;
+  user-select: none;
+  flex: 1;
+}
+
+.selector-button {
+  opacity: 0.5;
+}
+
+.selector-button:hover {
+  opacity: 1;
+}
+
+.active {
+  opacity: 1;
+}
+
+.SelectorContainerPos::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* Track */
+.SelectorContainerPos::-webkit-scrollbar-track {
+  background: none;
+}
+
+/* Handle */
+.SelectorContainerPos::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, .25);
+}
+
+/* Handle on hover */
+.SelectorContainerPos::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, .5);
+}
+
+.selectorButton {
+  padding: .25em;
+  display: block;
+  position: relative;
+}
+
+.trait-icon {
+    height: 4em;
+    margin: auto;
+    user-select: none;
+    position: relative;
+}
+
+.tickStyle {
+  width: 20%;
+  position: absolute;
+  right: -15px;
+  top: -15px;
+}
+
+.tickStyleInActive {
+  display: none;
+}
+
+.loading-trait {
+  height: 4em;
+  width: 4em;
+  text-align: center;
+  line-height: 52px;
+  background-color: rgba(16, 16, 16, 0.3);
+  border-radius: 1em;
+  z-index: 999;
+  position: absolute;
+  display: block;
+  color: #efefef;
+  top: 0;
+  cursor: wait;
+}
+
+.icon-hidden {
+  visibility: hidden;
+}
+
+.loading-trait-overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 98%;
+  background-color: rgba(16, 16, 16, 0.3);
+  border-radius: 1em;
+  cursor: wait;
+}
+
+.loading-trait-overlay-show {
+  display: none;
+}
