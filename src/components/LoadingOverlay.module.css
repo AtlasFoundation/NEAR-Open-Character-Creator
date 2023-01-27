@@ -41,7 +41,7 @@
     width: 5em;
     height: 5em;
 
-    border: 5px solid #860080; /* Light grey */
+    border: 5px solid #430086; /* Light grey */
     border-top: 5px solid #2c0026; /* Black */
     border-radius: 50%;
     animation: spinner 1.5s linear infinite;

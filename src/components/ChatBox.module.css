@@ -1,6 +1,6 @@
 .chatBox {
     z-index: 1000000;
-    opacity: 0.8;
+    opacity: 0.95;
     position: absolute;
     width: 600px;
     min-height: 200px;
@@ -9,7 +9,7 @@
     padding: 1em;
     margin: 1em;
     color: #fff;
-    background-color: #000;
+    background-color: rgb(51, 77, 97);
     /* align to the bottom of the div */
     vertical-align: bottom;
     /* center horizontally with transform */
@@ -17,6 +17,8 @@
     transform: translateX(-50%);
     /* round the corners */
     border-radius: 5px;
+    border: 2px solid #7aacba;
+
 }
 
 .messages { 
@@ -43,7 +45,7 @@
 
 .send {
     position: absolute;
-    background-color: #000;
+    background-color:  rgb(51, 77, 97);
     bottom: 10px;
     color: #fff;
     width: calc(100% - 20px);
@@ -51,18 +53,18 @@
 
 /* set the input0 text color to white */
 .send input {
-    background-color: #000;
+    background-color: rgb(55, 74, 103);
     color: #fff;
     border-radius: 5px;
-    border: 1px solid #fff;
+    border: 2px solid #7aacba;
     width: calc(100% - 90px);
     display: inline-block;
 }
 
 .send button {
-    background-color: #000;
+    background-color: rgb(78, 141, 193);
     color: #fff;
-    border: 1px solid #fff;
+    border: 2px solid #7aacba;
     /* round the corners */
     border-radius: 5px;
     width: 50px;
