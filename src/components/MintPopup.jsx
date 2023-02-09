@@ -142,7 +142,7 @@ export default function MintPopup({templateInfo}) {
   }
 
   const selectOption = (option) => {
-    !isMute && play();
+    // !isMute && play();
     if (option.name === currentTraitName){ 
       // if (cameraFocused) {
       //   moveCamera(option.cameraTarget);
