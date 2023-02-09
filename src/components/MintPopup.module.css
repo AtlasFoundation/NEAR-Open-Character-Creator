@@ -186,3 +186,54 @@
   justify-content: center;
   align-items: center;
 }
+
+.MintMenu {
+  /* position: absolute;
+  left: 2em;
+  top: 20vh; */
+  height: 4em;
+  border: 2px solid #7aacba;
+  border-radius : 5px;
+  backdrop-filter: blur(22.5px); 
+  box-sizing : border-box;
+  transform: perspective(70vh) rotateY(5deg);
+  backdrop-filter: blur(22.5px);
+  user-select : none;
+  z-index:1000;
+}
+
+.MintOption {
+  width: 3.5em;
+  margin: .5em;
+  margin-bottom: 1em;
+}
+
+.MintImg {
+  display: inline-block;
+  width: 100%;
+  opacity: 1;
+  user-select: none;
+  text-align: center;
+  cursor:pointer;
+  border-right: '';
+
+  margin:auto;
+  src: '';
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: .5em;
+  margin-top: .5em;
+}
+.MintImgActive {
+  opacity: 1;
+  display: inline-block;
+  width: 100%;
+  user-select: none;
+  text-align: center;
+  cursor:pointer;
+  border-right: '';
+  src: '';
+  display: flex;
+  background-color: aqua;
+}
