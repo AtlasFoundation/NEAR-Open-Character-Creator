@@ -133,7 +133,46 @@ export default function MintPopup({templateInfo}) {
       return;
     }
   }
+  const getTraitOptions = (trait, customTemplateInfo = null) => {
 
+    const template = customTemplateInfo || templateInfo;
+    const traitOptions = [];
+    const thumbnailBaseDir = template.thumbnailsDirectory;
+    trait.collection.map((item,index)=>{
+
+      const textureTraits = template.textureCollections.find(texture => 
+        texture.trait === item.textureCollection
+      )
+      const colorTraits = template.colorCollections.find(color => 
+        color.trait === item.colorCollection  
+      )
+
+      // if no there is no collection defined for textures and colors, just grab the base option
+      if (textureTraits == null && colorTraits == null){
+        const key = trait.name + "_" + index;
+        traitOptions.push(getOption(key,trait,item,thumbnailBaseDir + item.thumbnail))
+      }
+
+      // in case we find collections of subtraits, add them as menu items
+      if (textureTraits?.collection.length > 0){
+        textureTraits.collection.map((textureTrait,txtrIndex)=>{
+          const key = trait.name + "_" + index + "_txt" + txtrIndex;
+          const thumbnail = getThumbnail (item, textureTrait,txtrIndex)
+          traitOptions.push(getOption(key,trait,item,thumbnailBaseDir + thumbnail,null,textureTrait))
+        })
+      }
+      if (colorTraits?.collection.length > 0){
+        colorTraits.collection.map((colorTrait,colIndex)=>{
+          const key = trait.name + "_" + index + "_col" + colIndex;
+          const thumbnail = getThumbnail (item, colorTrait,colIndex)
+          // icons in color should be colored to avoid creating an icon per model
+          traitOptions.push(getOption(key,trait,item,thumbnailBaseDir + thumbnail,getHSL(colorTrait.value[0]), null, colorTrait))
+        })
+      }
+      
+    })
+    return traitOptions;
+  }
   const showTrait = (trait) => {
     if (trait.name in avatar) {
       if ("traitInfo" in avatar[trait.name]) {
