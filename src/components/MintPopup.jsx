@@ -16,6 +16,7 @@ import { NFT_CONTRACT_ID } from "../constants/address";
 import { AppMode, ViewContext } from "../context/ViewContext"
 
 import styles from "./MintPopup.module.css"
+import Selector from "./Selector"
 
 const pinataApiKey = import.meta.env.VITE_PINATA_API_KEY
 const pinataSecretApiKey = import.meta.env.VITE_PINATA_API_SECRET
@@ -23,7 +24,7 @@ const pinataSecretApiKey = import.meta.env.VITE_PINATA_API_SECRET
 const mintCost = 1
 
 export default function MintPopup({templateInfo}) {
-  const { currentTraitName, avatar, skinColor, model } = useContext(SceneContext)
+  const { currentTraitName,setCurrentTraitName,setCurrentOptions, avatar, skinColor, model } = useContext(SceneContext)
 	const { selector, accountId } = useWalletSelector();
   const { setCurrentAppMode } = useContext(ViewContext)
 
@@ -152,14 +153,14 @@ export default function MintPopup({templateInfo}) {
       //   moveCamera({height:0.8, distance:3.2});
       //   setCameraFocused(true);
       // }
-      // setCurrentTraitName(null)
+      setCurrentTraitName(null)
       return;
     } 
 
     // setRemoveOption(getAsArray(templateInfo.requiredTraits).indexOf(option.name) === -1)
     // moveCamera(option.cameraTarget);
-    // setCurrentOptions(getTraitOptions(option));
-    // setCurrentTraitName(option.name)
+    setCurrentOptions(getTraitOptions(option));
+    setCurrentTraitName(option.name)
     
   }
   return (
