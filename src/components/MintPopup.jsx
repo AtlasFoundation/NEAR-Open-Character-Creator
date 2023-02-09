@@ -163,7 +163,7 @@ export default function MintPopup({templateInfo}) {
                     <div className={styles["MintOption"]} key={index}>
                       {/* <div className={styles["TraitImg"]} /> */}
                       <img src={templateInfo.traitIconsDirectory + item.icon} className={styles["MintImg"]} />
-                      <div className={styles["TraitText"]}>{showTrait(item.name)}</div>
+                      <div className={styles["TraitText"]}>{showTrait(item)}</div>
                     </div>
                   ))}
               </div>
