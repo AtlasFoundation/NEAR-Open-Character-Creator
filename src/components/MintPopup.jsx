@@ -157,13 +157,13 @@ export default function MintPopup({templateInfo}) {
                 <div className={styles["mintTitle"]}>Mint Avatar</div>
               </div>
               <MintModal model={model} />
-              <div className={styles["TraitDetail"]}>
+              <div className={styles["SideMenu"]}>
                 {templateInfo.traits &&
                   templateInfo.traits.map((item, index) => (
-                    <div className={styles["SideMenu"]} key={index}>
-                      <div className={styles["MenuOption"]} />
+                    <div className={styles["MenuOption"]} key={index}>
+                      {/* <div className={styles["TraitImg"]} /> */}
                       <img src={templateInfo.traitIconsDirectory + item.icon} className={styles["MenuImg"]} />
-                      <div className={styles["TraitText"]}>{showTrait(item)}</div>
+                      {/* <div className={styles["TraitText"]}>{showTrait(item)}</div> */}
                     </div>
                   ))}
               </div>
