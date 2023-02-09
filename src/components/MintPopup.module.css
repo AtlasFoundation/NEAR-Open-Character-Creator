@@ -207,8 +207,8 @@
   height: 3.5em;
   width: 3.5em;
   margin: .5em;
+  margin-top: 0em;
   margin-bottom: 1em;
-  display: inline-block;
 }
 
 .MintImg {
@@ -227,7 +227,7 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: .5em;
-  margin-top: .5em;
+  margin-top: 0em;
   object-fit: contain;
 }
 .MintImg:hover {
