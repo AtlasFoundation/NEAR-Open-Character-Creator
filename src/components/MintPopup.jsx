@@ -23,7 +23,7 @@ const pinataSecretApiKey = import.meta.env.VITE_PINATA_API_SECRET
 const mintCost = 1
 
 export default function MintPopup({templateInfo}) {
-  const { avatar, skinColor, model } = useContext(SceneContext)
+  const { currentTraitName, avatar, skinColor, model } = useContext(SceneContext)
 	const { selector, accountId } = useWalletSelector();
   const { setCurrentAppMode } = useContext(ViewContext)
 
@@ -141,6 +141,27 @@ export default function MintPopup({templateInfo}) {
     } else return "No set"
   }
 
+  const selectOption = (option) => {
+    !isMute && play();
+    if (option.name === currentTraitName){ 
+      // if (cameraFocused) {
+      //   moveCamera(option.cameraTarget);
+      //   setCameraFocused(false);
+      // }
+      // else{ 
+      //   moveCamera({height:0.8, distance:3.2});
+      //   setCameraFocused(true);
+      // }
+      // setCurrentTraitName(null)
+      return;
+    } 
+
+    // setRemoveOption(getAsArray(templateInfo.requiredTraits).indexOf(option.name) === -1)
+    // moveCamera(option.cameraTarget);
+    // setCurrentOptions(getTraitOptions(option));
+    // setCurrentTraitName(option.name)
+    
+  }
   return (
     // currentView.includes("MINT") && (
       <div className={styles["StyledContainer"]}>
@@ -160,9 +181,12 @@ export default function MintPopup({templateInfo}) {
               <div className={styles["MintMenu"]}>
                 {templateInfo.traits &&
                   templateInfo.traits.map((item, index) => (
-                    <div className={styles["MintOption"]} key={index}>
-                      {/* <div className={styles["TraitImg"]} /> */}
-                      <img src={templateInfo.traitIconsDirectory + item.icon} className={styles["MintImg"]} />
+                    <div className={styles["MintOption"]} 
+                      onClick = {()=>{
+                        selectOption(item)
+                      }} 
+                      key = {index}>
+                      <img src={templateInfo.traitIconsDirectory + item.icon} className={currentTraitName !== item.name ? styles['MintImg'] : styles['MintImgActive']} />
                       {/* <div className={styles["TraitText"]}>{showTrait(item)}</div> */}
                     </div>
                   ))}
