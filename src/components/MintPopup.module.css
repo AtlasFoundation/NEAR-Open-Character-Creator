@@ -201,6 +201,7 @@
   backdrop-filter: blur(22.5px);
   user-select : none;
   z-index:1000;
+  contain: strict;
 }
 
 .MintOption {
