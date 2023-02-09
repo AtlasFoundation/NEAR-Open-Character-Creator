@@ -207,6 +207,7 @@
   width: 3.5em;
   margin: .5em;
   margin-bottom: 1em;
+  box-sizing : border-box;
 }
 
 .MintImg {
