@@ -180,7 +180,23 @@ export default function MintPopup({templateInfo}) {
       } else return "Default " + trait.name
     } else return "No set"
   }
+  const getClassOption = (key, icon, avatarIndex) => {
+    return {
+      key,
+      icon,
+      avatarIndex
+    }
+  }
+  // gets where to get the thumbnail
+  const getThumbnail = (item, subtrait, index) => {
+    // thumbnail override is the most important, check if its defined
+    if (item.thumbnailOverrides)
+      if (item.thumbnailOverrides[index])
+        return item.thumbnailOverrides[index];
 
+    // if not, check if its defined in the subtrait (texture collection or color collection) or just grab the base thumbnail from the item
+    return subtrait.thumbnail || item.thumbnail;
+  }
   const selectOption = (option) => {
     // !isMute && play();
     if (option.name === currentTraitName){ 
