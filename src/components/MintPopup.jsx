@@ -160,9 +160,9 @@ export default function MintPopup({templateInfo}) {
               <div className={styles["TraitDetail"]}>
                 {templateInfo.traits &&
                   templateInfo.traits.map((item, index) => (
-                    <div className={styles["TraitBox"]} key={index}>
-                      <div className={styles["TraitImage"]} />
-                      <img src={templateInfo.traitIconsDirectory + item.icon} />
+                    <div className={styles["SideMenu"]} key={index}>
+                      <div className={styles["MenuOption"]} />
+                      <img src={templateInfo.traitIconsDirectory + item.icon} className={styles["MenuImg"]} />
                       <div className={styles["TraitText"]}>{showTrait(item)}</div>
                     </div>
                   ))}
