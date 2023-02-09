@@ -180,6 +180,17 @@ export default function MintPopup({templateInfo}) {
       } else return "Default " + trait.name
     } else return "No set"
   }
+  const getOption = (key,trait,item, icon, iconHSL=null, textureTrait=null, colorTrait=null) => {
+    return {
+      key,
+      trait,
+      item,
+      icon,
+      iconHSL,
+      textureTrait,
+      colorTrait
+    }
+  }
   const getClassOption = (key, icon, avatarIndex) => {
     return {
       key,
@@ -197,6 +208,7 @@ export default function MintPopup({templateInfo}) {
     // if not, check if its defined in the subtrait (texture collection or color collection) or just grab the base thumbnail from the item
     return subtrait.thumbnail || item.thumbnail;
   }
+
   const selectOption = (option) => {
     // !isMute && play();
     if (option.name === currentTraitName){ 
