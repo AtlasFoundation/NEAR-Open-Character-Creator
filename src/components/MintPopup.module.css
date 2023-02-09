@@ -191,7 +191,7 @@
   /* position: absolute;
   left: 2em;
   top: 20vh; */
-  columns: 3em 2;
+  columns: 4em 2;
   height: 20em;
   border: 2px solid #7aacba;
   border-radius : 5px;
@@ -199,7 +199,7 @@
   box-sizing : border-box;
   backdrop-filter: blur(22.5px);
   user-select : none;
-  /* z-index:1000; */
+  z-index:1000;
 }
 
 .MintOption {
