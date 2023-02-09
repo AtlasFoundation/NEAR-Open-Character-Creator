@@ -180,6 +180,12 @@ export default function MintPopup({templateInfo}) {
       } else return "Default " + trait.name
     } else return "No set"
   }
+  const getHSL = (hex) => {
+    const color = new THREE.Color(hex);
+    const hsl = { h: 0, s: 0, l: 0 };
+    color.getHSL(hsl)
+    return hsl;
+  }
   const getOption = (key,trait,item, icon, iconHSL=null, textureTrait=null, colorTrait=null) => {
     return {
       key,
