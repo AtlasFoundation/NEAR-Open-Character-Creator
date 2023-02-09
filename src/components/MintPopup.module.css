@@ -21,8 +21,8 @@
 }
 
 .Styledbutton.selected {
-  border: 2px solid #4EB0C0;
-  color: #FFFFFF;
+  border: 2px solid #4eb0c0;
+  color: #ffffff;
 }
 
 /* TASK: rewrite the above styled component with CSS */
@@ -93,7 +93,6 @@
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
-
 }
 
 .Header.mintStatus {
@@ -115,7 +114,6 @@
   gap: 50px;
   margin: 10px;
 }
-
 
 /* TASK: rewrite the above styled component with CSS */
 
@@ -175,6 +173,13 @@
   display: flex;
   justify-content: left;
   align-items: center;
+  gap: 10px;
+}
+
+.TraitBox img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
 }
 
 /* TASK: rewrite the above styled component with CSS */
