@@ -226,6 +226,11 @@
   margin-bottom: .5em;
   margin-top: .5em;
 }
+.MintImg:hover {
+  opacity: 1;
+  background-color: aqua;
+  width: 3.5em;
+}
 .MintImgActive {
   opacity: 1;
   display: inline-block;
