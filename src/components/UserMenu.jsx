@@ -11,15 +11,15 @@ import CustomButton from "./custom-button"
 import { AppMode, ViewContext } from "../context/ViewContext"
 
 import styles from "./UserMenu.module.css"
-import { providers, utils } from "near-api-js";
-import { useWalletSelector } from '../context/WalletSelectorContext'
+import { providers, utils } from "near-api-js"
+import { useWalletSelector } from "../context/WalletSelectorContext"
 
 export const UserMenu = () => {
   const type = "_Gen1" // class type
 
-  const {currentAppMode, setCurrentAppMode} = useContext(ViewContext)
+  const { currentAppMode, setCurrentAppMode } = useContext(ViewContext)
   const [showDownloadOptions, setShowDownloadOptions] = useState(false)
-	const { selector, modal, accountId } = useWalletSelector();
+  const { selector, modal, accountId } = useWalletSelector()
 
   // const { ensName, setEnsName, connected, setConnected } =
   //   useContext(AccountContext)
@@ -46,12 +46,12 @@ export const UserMenu = () => {
   // }
 
   const disconnectWallet = async () => {
-		const wallet = await selector.wallet();
+    const wallet = await selector.wallet()
 
-		wallet.signOut().catch((err) => {
-			console.log("Failed to sign out");
-			console.error(err);
-		});
+    wallet.signOut().catch((err) => {
+      console.log("Failed to sign out")
+      console.error(err)
+    })
   }
 
   const handleDownload = () => {
@@ -61,7 +61,7 @@ export const UserMenu = () => {
   }
 
   const connectWallet = () => {
-		modal.show()
+    modal.show()
   }
 
   async function download(
@@ -93,7 +93,7 @@ export const UserMenu = () => {
       fileName && fileName !== "" ? fileName : "AvatarCreatorModel"
     }`
 
-    console.log('avatarToDownload', avatarToDownload)
+    console.log("avatarToDownload", avatarToDownload)
 
     const avatarToCombine = avatarToDownload.clone()
 
@@ -127,18 +127,20 @@ export const UserMenu = () => {
         },
       )
     } else {
-
-      const vrmData = {...getVRMBaseData(avatar), ...getAvatarData(avatarModel, "UpstreetAvatar")}
+      const vrmData = {
+        ...getVRMBaseData(avatar),
+        ...getAvatarData(avatarModel, "UpstreetAvatar"),
+      }
       exporter.parse(vrmData, avatarModel, (vrm) => {
         saveArrayBuffer(vrm, `${downloadFileName}.vrm`)
       })
     }
   }
 
-  function getVRMBaseData(avatar){
+  function getVRMBaseData(avatar) {
     // to do, merge data from all vrms, not to get only the first one
-    for (const prop in avatar){
-      if (avatar[prop].vrm){
+    for (const prop in avatar) {
+      if (avatar[prop].vrm) {
         return avatar[prop].vrm
       }
     }
@@ -153,58 +155,58 @@ export const UserMenu = () => {
       <div className={styles.leftCorner} />
       <div className={styles.rightCorner} />
       <ul>
-          <React.Fragment>
-            <li>
-              <CustomButton
-                type="icon"
-                theme="light"
-                icon={showDownloadOptions ? "close" : "download" }
-                size={32}
-                onClick={handleDownload}
-              />
-              {showDownloadOptions && (
-                <div className={styles.dropDown}>
-                  <CustomButton
-                    theme="light"
-                    text="Download GLB"
-                    icon="download"
-                    size={14}
-                    onClick={() => {
-                      download(model, `UpstreetAvatar_${type}`, "glb")
-                    }}
-                  />
-                  <CustomButton
-                    theme="light"
-                    text="Download VRM"
-                    icon="download"
-                    size={14}
-                    onClick={() => {
-                      download(model, `UpstreetAvatar_${type}`, "vrm")
-                    }}
-                  />
-                </div>
-              )}
-            </li>
-            <li>
-              <CustomButton
-                type="icon"
-                theme="light"
-                icon="mint"
-                size={32}
-                onClick={() => {
-                  setCurrentAppMode(AppMode.MINT);     
-                }}
-              />
-            </li>
-          </React.Fragment>
+        <React.Fragment>
+          <li>
+            <CustomButton
+              type="icon"
+              theme="light"
+              icon={showDownloadOptions ? "close" : "download"}
+              size={32}
+              onClick={handleDownload}
+            />
+            {showDownloadOptions && (
+              <div className={styles.dropDown}>
+                <CustomButton
+                  theme="light"
+                  text="Download GLB"
+                  icon="download"
+                  size={14}
+                  onClick={() => {
+                    download(model, `UpstreetAvatar_${type}`, "glb")
+                  }}
+                />
+                <CustomButton
+                  theme="light"
+                  text="Download VRM"
+                  icon="download"
+                  size={14}
+                  onClick={() => {
+                    download(model, `UpstreetAvatar_${type}`, "vrm")
+                  }}
+                />
+              </div>
+            )}
+          </li>
+          <li>
+            <CustomButton
+              type="icon"
+              theme="light"
+              icon="mint"
+              size={32}
+              onClick={() => {
+                setCurrentAppMode(AppMode.MINT)
+              }}
+            />
+          </li>
+        </React.Fragment>
         {accountId ? (
           <React.Fragment>
             <li>
               <div className={styles.loggedInText}>
                 <div className={styles.chainName}>Testnet</div>
-                  <div className={styles.walletAddress}>
-                    { accountId.slice(0, 4) + ".." + accountId.slice(-7) }
-                  </div>
+                <div className={styles.walletAddress}>
+                  {accountId.slice(0, 4) + ".." + accountId.slice(-7)}
+                </div>
               </div>
               <CustomButton
                 type="login"
